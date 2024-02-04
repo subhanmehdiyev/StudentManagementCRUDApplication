@@ -40,7 +40,6 @@ namespace StudentManagementCRUDApp
 
         private List<Student> GetAllStudentsDataFromDatabase()
         {
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -103,6 +102,7 @@ namespace StudentManagementCRUDApp
             Student student = GetStudentDataFromUser();
             SaveStudentDataInDatabase(student);
 
+            dataGridViewStudent.Rows.Clear();
             ShowAllDataInDatagridview();
 
             ClearDataControlsForNewData();
