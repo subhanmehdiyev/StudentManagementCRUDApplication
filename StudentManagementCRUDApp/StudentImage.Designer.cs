@@ -1,6 +1,6 @@
 ﻿namespace StudentManagementCRUDApp
 {
-    partial class ProfilImage
+    partial class StudentImage
     {
         /// <summary>
         /// Required designer variable.
@@ -37,22 +37,22 @@
             pictureBox_Image.Dock = DockStyle.Fill;
             pictureBox_Image.Location = new Point(0, 0);
             pictureBox_Image.Name = "pictureBox_Image";
-            pictureBox_Image.Size = new Size(998, 534);
+            pictureBox_Image.Size = new Size(741, 571);
             pictureBox_Image.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox_Image.TabIndex = 0;
             pictureBox_Image.TabStop = false;
             // 
-            // ProfilImage
+            // StudentImage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(998, 534);
+            ClientSize = new Size(741, 571);
             Controls.Add(pictureBox_Image);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "ProfilImage";
+            Name = "StudentImage";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Profil Image";
-            Load += ProfilImage_Load;
+            Text = "Student Image";
+            Load += StudentImage_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox_Image).EndInit();
             ResumeLayout(false);
         }

@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace StudentManagementCRUDApp
 {
-    public partial class ProfilImage : Form
+    public partial class StudentImage : Form
     {
-        public string ImageFilePath { get; set; }
+        public Image Image{ get; set; }
 
-        public ProfilImage(string fileName)
+        public StudentImage(Image image)
         {
             InitializeComponent();
-            ImageFilePath = fileName;
+            Image = image;
         }
 
-        private void ProfilImage_Load(object sender, EventArgs e)
+        private void StudentImage_Load(object sender, EventArgs e)
         {
-            pictureBox_Image.Image = Image.FromFile(ImageFilePath);
+            pictureBox_Image.Image = Image;
         }
     }
 }
