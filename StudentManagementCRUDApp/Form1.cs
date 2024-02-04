@@ -58,7 +58,7 @@ namespace StudentManagementCRUDApp
                                     Image = Image.FromStream(reader.GetStream("Student_ImageInByteArray")),
                                     Name = reader.GetString("Student_Name"),
                                     Surname = reader.GetString("Student_Surname"),
-                                    Birthdate = DateOnly.Parse(reader.GetDateTime("Student_Birthdate").ToString().Split(" ")[0]),
+                                    Birthdate = DateOnly.Parse(reader.GetDateTime("Student_Birthdate").Date.ToString()),
                                     Nationality = reader.GetString("Student_Nationality"),
                                     Gender = reader.GetString("Student_Gender"),
                                     Address = reader.GetString("Student_Address")
@@ -391,7 +391,7 @@ namespace StudentManagementCRUDApp
                                 Image = Image.FromStream(reader.GetStream("Student_ImageInByteArray")),
                                 Name = reader.GetString("Student_Name"),
                                 Surname = reader.GetString("Student_Surname"),
-                                Birthdate = DateOnly.Parse(reader.GetDateTime("Student_Birthdate").ToString().Split(" ")[0]),
+                                Birthdate = DateOnly.Parse(reader.GetDateTime("Student_Birthdate").Date.ToString()),
                                 Nationality = reader.GetString("Student_Nationality"),
                                 Gender = reader.GetString("Student_Gender"),
                                 Address = reader.GetString("Student_Address")
