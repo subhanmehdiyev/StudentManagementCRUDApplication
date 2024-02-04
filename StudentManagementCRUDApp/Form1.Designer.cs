@@ -67,6 +67,7 @@
             radioButton_Male = new RadioButton();
             radioButton_Female = new RadioButton();
             button_Clear = new Button();
+            radioButton_PreferNotToSay = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)dataGridViewStudent).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox_Image).BeginInit();
             SuspendLayout();
@@ -243,7 +244,7 @@
             // 
             label_Gender.AutoSize = true;
             label_Gender.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_Gender.Location = new Point(567, 326);
+            label_Gender.Location = new Point(567, 321);
             label_Gender.Name = "label_Gender";
             label_Gender.Size = new Size(79, 22);
             label_Gender.TabIndex = 2;
@@ -253,7 +254,7 @@
             // 
             label_Address.AutoSize = true;
             label_Address.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_Address.Location = new Point(559, 372);
+            label_Address.Location = new Point(559, 375);
             label_Address.Name = "label_Address";
             label_Address.Size = new Size(87, 22);
             label_Address.TabIndex = 2;
@@ -396,7 +397,7 @@
             // radioButton_Male
             // 
             radioButton_Male.AutoSize = true;
-            radioButton_Male.Location = new Point(652, 326);
+            radioButton_Male.Location = new Point(662, 307);
             radioButton_Male.Name = "radioButton_Male";
             radioButton_Male.Size = new Size(63, 24);
             radioButton_Male.TabIndex = 7;
@@ -407,7 +408,7 @@
             // radioButton_Female
             // 
             radioButton_Female.AutoSize = true;
-            radioButton_Female.Location = new Point(742, 326);
+            radioButton_Female.Location = new Point(731, 307);
             radioButton_Female.Name = "radioButton_Female";
             radioButton_Female.Size = new Size(78, 24);
             radioButton_Female.TabIndex = 8;
@@ -426,11 +427,23 @@
             button_Clear.UseVisualStyleBackColor = true;
             button_Clear.Click += button_Clear_Click;
             // 
+            // radioButton_PreferNotToSay
+            // 
+            radioButton_PreferNotToSay.AutoSize = true;
+            radioButton_PreferNotToSay.Location = new Point(662, 337);
+            radioButton_PreferNotToSay.Name = "radioButton_PreferNotToSay";
+            radioButton_PreferNotToSay.Size = new Size(138, 24);
+            radioButton_PreferNotToSay.TabIndex = 17;
+            radioButton_PreferNotToSay.TabStop = true;
+            radioButton_PreferNotToSay.Text = "Prefer not to say";
+            radioButton_PreferNotToSay.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1144, 463);
+            Controls.Add(radioButton_PreferNotToSay);
             Controls.Add(button_Clear);
             Controls.Add(radioButton_Female);
             Controls.Add(radioButton_Male);
@@ -508,5 +521,6 @@
         private DataGridViewTextBoxColumn Nationality;
         private DataGridViewTextBoxColumn Gender;
         private DataGridViewTextBoxColumn Address;
+        private RadioButton radioButton_PreferNotToSay;
     }
 }

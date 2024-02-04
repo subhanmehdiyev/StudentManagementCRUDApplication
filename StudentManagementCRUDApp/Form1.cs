@@ -154,6 +154,10 @@ namespace StudentManagementCRUDApp
                 {
                     gender = radioButton_Female.Text;
                 }
+                else if (radioButton_PreferNotToSay.Checked)
+                {
+                    gender = radioButton_PreferNotToSay.Text;
+                }
 
                 if (gender is null)
                     MessageBox.Show("You must choose gender.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -206,6 +210,7 @@ namespace StudentManagementCRUDApp
                 {
                     radioButton_Male.Checked = false;
                     radioButton_Female.Checked = false;
+                    radioButton_PreferNotToSay.Checked = false;
                 }
                 else if (AreDataControlsTextboxOrDatetimepicker(formMember))
                 {
@@ -239,13 +244,19 @@ namespace StudentManagementCRUDApp
                 textBox_Nationality.Text = dataGridViewStudent.CurrentRow.Cells["Nationality"].Value.ToString();
                 textBox_Address.Text = dataGridViewStudent.CurrentRow.Cells["Address"].Value.ToString();
 
-                if (dataGridViewStudent.CurrentRow.Cells["Gender"].Value.ToString() is "Male")
+                string gender = dataGridViewStudent.CurrentRow.Cells["Gender"].Value.ToString();
+
+                if (gender is "Male")
                 {
                     radioButton_Male.PerformClick();
                 }
-                else
+                else if (gender is "Female")
                 {
                     radioButton_Female.PerformClick();
+                }
+                else
+                {
+                    radioButton_PreferNotToSay.PerformClick();
                 }
             }
         }
