@@ -7,6 +7,7 @@ using Microsoft.Data.SqlClient;
 using System.Windows.Forms;
 using System.Net.Http.Headers;
 using System.Drawing.Configuration;
+using System.Reflection.PortableExecutable;
 
 namespace StudentManagementCRUDApp
 {
@@ -58,7 +59,7 @@ namespace StudentManagementCRUDApp
                                     Image = Image.FromStream(reader.GetStream("Student_ImageInByteArray")),
                                     Name = reader.GetString("Student_Name"),
                                     Surname = reader.GetString("Student_Surname"),
-                                    Birthdate = DateOnly.Parse(reader.GetDateTime("Student_Birthdate").Date.ToString()),
+                                    Birthdate = ToDateOnly(reader.GetDateTime("Student_Birthdate")),
                                     Nationality = reader.GetString("Student_Nationality"),
                                     Gender = reader.GetString("Student_Gender"),
                                     Address = reader.GetString("Student_Address")
@@ -72,6 +73,11 @@ namespace StudentManagementCRUDApp
             }
 
             return students;
+        }
+
+        private DateOnly ToDateOnly(DateTime dateTime)
+        {
+            return DateOnly.Parse(dateTime.ToString().Split(' ')[0]);
         }
 
         private void button_SelectImage_Click(object sender, EventArgs e)
@@ -110,7 +116,7 @@ namespace StudentManagementCRUDApp
                 imageInByteArray = DefineImageInBytes(),
                 Name = textBox_Name.Text,
                 Surname = textBox_Surname.Text,
-                Birthdate = DateOnly.Parse(dateTimePicker_Birthdate.Text.Split(" ")[0]),
+                Birthdate = ToDateOnly(dateTimePicker_Birthdate.Value),
                 Nationality = textBox_Nationality.Text,
                 Gender = DefineGender(),
                 Address = textBox_Address.Text
@@ -391,7 +397,7 @@ namespace StudentManagementCRUDApp
                                 Image = Image.FromStream(reader.GetStream("Student_ImageInByteArray")),
                                 Name = reader.GetString("Student_Name"),
                                 Surname = reader.GetString("Student_Surname"),
-                                Birthdate = DateOnly.Parse(reader.GetDateTime("Student_Birthdate").Date.ToString()),
+                                Birthdate = ToDateOnly(reader.GetDateTime("Student_Birthdate")),
                                 Nationality = reader.GetString("Student_Nationality"),
                                 Gender = reader.GetString("Student_Gender"),
                                 Address = reader.GetString("Student_Address")
