@@ -141,10 +141,6 @@ namespace StudentManagementCRUDApp
             {
                 pictureBox_Image.Image = Image.FromFile(Path.GetFullPath("default_female.jpg"));
             }
-            else
-            {
-                pictureBox_Image.Image = Image.FromFile(openFileDialog_Student_Image.FileName);
-            }
 
             MemoryStream memoryStream = new MemoryStream();
             pictureBox_Image.Image.Save(memoryStream, pictureBox_Image.Image.RawFormat);
@@ -293,17 +289,19 @@ namespace StudentManagementCRUDApp
             studentImageForm.ShowDialog();
         }
 
+
+
         private void button_Update_Click(object sender, EventArgs e)
         {
             Student student = GetStudentDataFromUser();
-            UpdateStudentDataInDatabase(student);
+            UpdateStudentInDatabase(student);
 
-            ShowAllDataInDatagridview();
+            UpdateStudentInDatagridview(student);
 
             ClearDataControlsForNewData();
         }
 
-        private void UpdateStudentDataInDatabase(Student student)
+        private void UpdateStudentInDatabase(Student student)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -313,7 +311,7 @@ namespace StudentManagementCRUDApp
                 command.CommandText = @"UPDATE Students
                                         SET Student_ImageInByteArray = @ImageInByteArray, Student_Name = @Name, 
                                             Student_Surname = @Surname, Student_Birthdate = @Birthdate, 
-                                            Student_Nationality = @Nationlity, Student_Gender = @Gender, 
+                                            Student_Nationality = @Nationality, Student_Gender = @Gender, 
                                             Student_Address = @Address
                                         WHERE Student_ID = @Id";
 
@@ -333,6 +331,16 @@ namespace StudentManagementCRUDApp
                 MessageBox.Show($"Student with id {student.ID} is updated succesfully.", "Notification",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void UpdateStudentInDatagridview(Student student)
+        {
+            int rowIndex = dataGridViewStudent.Rows.IndexOf(dataGridViewStudent.CurrentRow);
+            dataGridViewStudent.Rows.RemoveAt(rowIndex);
+
+            student.Image = pictureBox_Image.Image;
+            dataGridViewStudent.Rows.Insert(rowIndex, student.ID, student.Image, student.Name, student.Surname, student.Birthdate, 
+                                                      student.Nationality, student.Gender, student.Address);
         }
 
         private void button_Delete_Click(object sender, EventArgs e)
