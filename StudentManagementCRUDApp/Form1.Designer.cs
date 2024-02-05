@@ -92,9 +92,9 @@
             dataGridViewStudent.RowHeadersVisible = false;
             dataGridViewStudent.RowHeadersWidth = 51;
             dataGridViewStudent.RowTemplate.Height = 29;
-            dataGridViewStudent.ScrollBars = ScrollBars.None;
+            dataGridViewStudent.ScrollBars = ScrollBars.Vertical;
             dataGridViewStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewStudent.Size = new Size(1056, 188);
+            dataGridViewStudent.Size = new Size(1082, 188);
             dataGridViewStudent.TabIndex = 13;
             dataGridViewStudent.CellClick += dataGridViewStudent_CellClick;
             dataGridViewStudent.CellContentDoubleClick += dataGridViewStudent_CellContentDoubleClick;
@@ -151,7 +151,7 @@
             Gender.HeaderText = "Gender";
             Gender.MinimumWidth = 6;
             Gender.Name = "Gender";
-            Gender.Width = 125;
+            Gender.Width = 150;
             // 
             // Address
             // 
@@ -175,7 +175,7 @@
             // 
             label_ID.AutoSize = true;
             label_ID.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_ID.Location = new Point(277, 275);
+            label_ID.Location = new Point(299, 275);
             label_ID.Name = "label_ID";
             label_ID.Size = new Size(36, 22);
             label_ID.TabIndex = 2;
@@ -185,7 +185,7 @@
             // 
             label_Name.AutoSize = true;
             label_Name.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_Name.Location = new Point(246, 321);
+            label_Name.Location = new Point(268, 321);
             label_Name.Name = "label_Name";
             label_Name.Size = new Size(67, 22);
             label_Name.TabIndex = 2;
@@ -193,7 +193,7 @@
             // 
             // textBox_Name
             // 
-            textBox_Name.Location = new Point(319, 321);
+            textBox_Name.Location = new Point(341, 321);
             textBox_Name.Name = "textBox_Name";
             textBox_Name.Size = new Size(168, 27);
             textBox_Name.TabIndex = 3;
@@ -202,7 +202,7 @@
             // 
             label_Surname.AutoSize = true;
             label_Surname.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_Surname.Location = new Point(220, 371);
+            label_Surname.Location = new Point(242, 371);
             label_Surname.Name = "label_Surname";
             label_Surname.Size = new Size(93, 22);
             label_Surname.TabIndex = 2;
@@ -210,7 +210,7 @@
             // 
             // textBox_Surname
             // 
-            textBox_Surname.Location = new Point(319, 371);
+            textBox_Surname.Location = new Point(341, 371);
             textBox_Surname.Name = "textBox_Surname";
             textBox_Surname.Size = new Size(168, 27);
             textBox_Surname.TabIndex = 4;
@@ -219,7 +219,7 @@
             // 
             label_DateOfBirth.AutoSize = true;
             label_DateOfBirth.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_DateOfBirth.Location = new Point(211, 419);
+            label_DateOfBirth.Location = new Point(233, 419);
             label_DateOfBirth.Name = "label_DateOfBirth";
             label_DateOfBirth.Size = new Size(124, 22);
             label_DateOfBirth.TabIndex = 2;
@@ -229,7 +229,7 @@
             // 
             label_Nationality.AutoSize = true;
             label_Nationality.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_Nationality.Location = new Point(508, 275);
+            label_Nationality.Location = new Point(530, 275);
             label_Nationality.Name = "label_Nationality";
             label_Nationality.Size = new Size(108, 22);
             label_Nationality.TabIndex = 2;
@@ -237,7 +237,7 @@
             // 
             // textBox_Nationality
             // 
-            textBox_Nationality.Location = new Point(622, 274);
+            textBox_Nationality.Location = new Point(644, 274);
             textBox_Nationality.Name = "textBox_Nationality";
             textBox_Nationality.Size = new Size(168, 27);
             textBox_Nationality.TabIndex = 6;
@@ -246,7 +246,7 @@
             // 
             label_Gender.AutoSize = true;
             label_Gender.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_Gender.Location = new Point(537, 321);
+            label_Gender.Location = new Point(559, 321);
             label_Gender.Name = "label_Gender";
             label_Gender.Size = new Size(79, 22);
             label_Gender.TabIndex = 2;
@@ -256,7 +256,7 @@
             // 
             label_Address.AutoSize = true;
             label_Address.Font = new Font("Bahnschrift", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label_Address.Location = new Point(529, 375);
+            label_Address.Location = new Point(551, 375);
             label_Address.Name = "label_Address";
             label_Address.Size = new Size(87, 22);
             label_Address.TabIndex = 2;
@@ -264,7 +264,7 @@
             // 
             // textBox_Address
             // 
-            textBox_Address.Location = new Point(622, 371);
+            textBox_Address.Location = new Point(644, 371);
             textBox_Address.Multiline = true;
             textBox_Address.Name = "textBox_Address";
             textBox_Address.Size = new Size(168, 72);
@@ -273,7 +273,7 @@
             // button_Add
             // 
             button_Add.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button_Add.Location = new Point(835, 267);
+            button_Add.Location = new Point(861, 267);
             button_Add.Name = "button_Add";
             button_Add.Size = new Size(240, 39);
             button_Add.TabIndex = 10;
@@ -283,7 +283,7 @@
             // 
             // textBox_Search
             // 
-            textBox_Search.Location = new Point(750, 10);
+            textBox_Search.Location = new Point(766, 15);
             textBox_Search.Name = "textBox_Search";
             textBox_Search.Size = new Size(125, 27);
             textBox_Search.TabIndex = 14;
@@ -294,7 +294,7 @@
             // button_Delete
             // 
             button_Delete.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button_Delete.Location = new Point(835, 358);
+            button_Delete.Location = new Point(861, 358);
             button_Delete.Name = "button_Delete";
             button_Delete.Size = new Size(240, 39);
             button_Delete.TabIndex = 12;
@@ -305,7 +305,7 @@
             // button_Update
             // 
             button_Update.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button_Update.Location = new Point(835, 313);
+            button_Update.Location = new Point(861, 313);
             button_Update.Name = "button_Update";
             button_Update.Size = new Size(240, 39);
             button_Update.TabIndex = 11;
@@ -316,7 +316,7 @@
             // button_Search
             // 
             button_Search.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button_Search.Location = new Point(881, 8);
+            button_Search.Location = new Point(897, 13);
             button_Search.Name = "button_Search";
             button_Search.Size = new Size(94, 29);
             button_Search.TabIndex = 15;
@@ -326,7 +326,7 @@
             // 
             // textBox_ID
             // 
-            textBox_ID.Location = new Point(319, 274);
+            textBox_ID.Location = new Point(341, 274);
             textBox_ID.Name = "textBox_ID";
             textBox_ID.Size = new Size(168, 27);
             textBox_ID.TabIndex = 2;
@@ -334,7 +334,7 @@
             // button_Refresh
             // 
             button_Refresh.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button_Refresh.Location = new Point(981, 8);
+            button_Refresh.Location = new Point(1007, 13);
             button_Refresh.Name = "button_Refresh";
             button_Refresh.Size = new Size(94, 29);
             button_Refresh.TabIndex = 16;
@@ -391,7 +391,7 @@
             // 
             // dateTimePicker_Birthdate
             // 
-            dateTimePicker_Birthdate.Location = new Point(341, 416);
+            dateTimePicker_Birthdate.Location = new Point(363, 416);
             dateTimePicker_Birthdate.Name = "dateTimePicker_Birthdate";
             dateTimePicker_Birthdate.Size = new Size(250, 27);
             dateTimePicker_Birthdate.TabIndex = 5;
@@ -399,7 +399,7 @@
             // radioButton_Male
             // 
             radioButton_Male.AutoSize = true;
-            radioButton_Male.Location = new Point(632, 307);
+            radioButton_Male.Location = new Point(654, 307);
             radioButton_Male.Name = "radioButton_Male";
             radioButton_Male.Size = new Size(63, 24);
             radioButton_Male.TabIndex = 7;
@@ -410,7 +410,7 @@
             // radioButton_Female
             // 
             radioButton_Female.AutoSize = true;
-            radioButton_Female.Location = new Point(701, 307);
+            radioButton_Female.Location = new Point(723, 307);
             radioButton_Female.Name = "radioButton_Female";
             radioButton_Female.Size = new Size(78, 24);
             radioButton_Female.TabIndex = 8;
@@ -421,7 +421,7 @@
             // button_Clear
             // 
             button_Clear.Font = new Font("Bahnschrift SemiBold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            button_Clear.Location = new Point(835, 403);
+            button_Clear.Location = new Point(861, 403);
             button_Clear.Name = "button_Clear";
             button_Clear.Size = new Size(240, 39);
             button_Clear.TabIndex = 13;
@@ -432,7 +432,7 @@
             // radioButton_PreferNotToSay
             // 
             radioButton_PreferNotToSay.AutoSize = true;
-            radioButton_PreferNotToSay.Location = new Point(632, 337);
+            radioButton_PreferNotToSay.Location = new Point(654, 337);
             radioButton_PreferNotToSay.Name = "radioButton_PreferNotToSay";
             radioButton_PreferNotToSay.Size = new Size(138, 24);
             radioButton_PreferNotToSay.TabIndex = 17;
@@ -444,7 +444,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1095, 463);
+            ClientSize = new Size(1124, 463);
             Controls.Add(radioButton_PreferNotToSay);
             Controls.Add(button_Clear);
             Controls.Add(radioButton_Female);
@@ -515,6 +515,7 @@
         private RadioButton radioButton_Male;
         private RadioButton radioButton_Female;
         private Button button_Clear;
+        private RadioButton radioButton_PreferNotToSay;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewImageColumn Student_Image;
         private DataGridViewTextBoxColumn Student_Name;
@@ -523,6 +524,5 @@
         private DataGridViewTextBoxColumn Nationality;
         private DataGridViewTextBoxColumn Gender;
         private DataGridViewTextBoxColumn Address;
-        private RadioButton radioButton_PreferNotToSay;
     }
 }

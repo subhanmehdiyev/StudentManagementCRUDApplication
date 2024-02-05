@@ -100,12 +100,18 @@ namespace StudentManagementCRUDApp
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
             Student student = GetStudentDataFromUser();
-            SaveStudentDataInDatabase(student);
 
-            dataGridViewStudent.Rows.Clear();
-            ShowAllDataInDatagridview();
+            SaveStudentDataInDatabase(student);
+            AddStudentToDatagridview(student);
 
             ClearDataControlsForNewData();
+        }
+
+        private void AddStudentToDatagridview(Student student)
+        {
+            student.Image = pictureBox_Image.Image;
+            dataGridViewStudent.Rows.Add(student.ID, student.Image, student.Name, student.Surname, student.Birthdate,
+                                         student.Nationality, student.Gender, student.Address);
         }
 
         private Student GetStudentDataFromUser()
