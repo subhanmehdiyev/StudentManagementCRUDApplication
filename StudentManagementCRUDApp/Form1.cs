@@ -95,9 +95,7 @@ namespace StudentManagementCRUDApp
 
         private void button_Add_Click(object sender, EventArgs e)
         {
-            if (textBox_ID.Text is null)
-                MessageBox.Show("You must set ID.\nBe careful, Id must be unique.", "Warning",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            CheckIDValidation();
 
             Student student = GetStudentDataFromUser();
 
@@ -112,6 +110,26 @@ namespace StudentManagementCRUDApp
             student.Image = pictureBox_Image.Image;
             dataGridViewStudent.Rows.Add(student.ID, student.Image, student.Name, student.Surname, student.Birthdate,
                                          student.Nationality, student.Gender, student.Address);
+        }
+
+        private void CheckIDValidation()
+        {
+            if (textBox_ID.Text is null)
+                MessageBox.Show("You must set ID.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            string otherStudentID = null;
+
+            foreach (DataGridViewRow row in dataGridViewStudent.Rows)
+            {
+                otherStudentID = row.Cells["ID"].Value.ToString();
+
+                if (textBox_ID.Text == otherStudentID)
+                {
+                    MessageBox.Show("This ID is used by other student.\nChoose another one.", "Warning",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    break;
+                }
+            }
         }
 
         private Student GetStudentDataFromUser()
