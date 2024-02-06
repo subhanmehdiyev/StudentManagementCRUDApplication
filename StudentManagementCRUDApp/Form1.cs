@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Net.Http.Headers;
 using System.Drawing.Configuration;
 using System.Reflection.PortableExecutable;
+using StudentManagementCRUDApp.Properties;
 
 namespace StudentManagementCRUDApp
 {
@@ -154,11 +155,11 @@ namespace StudentManagementCRUDApp
         {
             if (pictureBox_Image.Image is null & radioButton_Male.Checked)
             {
-                pictureBox_Image.Image = Image.FromFile(Path.GetFullPath("default_male.jpg"));
+                pictureBox_Image.Image = Resources.default_male;
             }
             else if (pictureBox_Image.Image is null & radioButton_Female.Checked)
             {
-                pictureBox_Image.Image = Image.FromFile(Path.GetFullPath("default_female.jpg"));
+                pictureBox_Image.Image = Resources.default_female;
             }
 
             MemoryStream memoryStream = new MemoryStream();
