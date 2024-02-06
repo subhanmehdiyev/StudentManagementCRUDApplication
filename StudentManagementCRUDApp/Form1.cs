@@ -236,36 +236,27 @@ namespace StudentManagementCRUDApp
 
         private void dataGridViewStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var student = new Student();
+            textBox_ID.Text = dataGridViewStudent.CurrentRow.Cells["ID"].Value.ToString();
+            pictureBox_Image.Image = (Image)dataGridViewStudent.CurrentRow.Cells["Student_Image"].Value;
+            textBox_Name.Text = dataGridViewStudent.CurrentRow.Cells["Student_Name"].Value.ToString();
+            textBox_Surname.Text = dataGridViewStudent.CurrentRow.Cells["Surname"].Value.ToString();
+            dateTimePicker_Birthdate.Text = dataGridViewStudent.CurrentRow.Cells["Birthdate"].Value.ToString();
+            textBox_Nationality.Text = dataGridViewStudent.CurrentRow.Cells["Nationality"].Value.ToString();
+            textBox_Address.Text = dataGridViewStudent.CurrentRow.Cells["Address"].Value.ToString();
 
-            if (dataGridViewStudent.CurrentRow.Cells["ID"].Value is null)
+            string gender = dataGridViewStudent.CurrentRow.Cells["Gender"].Value.ToString();
+
+            if (gender is "Male")
             {
-                MessageBox.Show("Chosen row is empty.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                radioButton_Male.PerformClick();
+            }
+            else if (gender is "Female")
+            {
+                radioButton_Female.PerformClick();
             }
             else
             {
-                textBox_ID.Text = dataGridViewStudent.CurrentRow.Cells["ID"].Value.ToString();
-                pictureBox_Image.Image = (Image)dataGridViewStudent.CurrentRow.Cells["Student_Image"].Value;
-                textBox_Name.Text = dataGridViewStudent.CurrentRow.Cells["Student_Name"].Value.ToString();
-                textBox_Surname.Text = dataGridViewStudent.CurrentRow.Cells["Surname"].Value.ToString();
-                dateTimePicker_Birthdate.Text = dataGridViewStudent.CurrentRow.Cells["Birthdate"].Value.ToString();
-                textBox_Nationality.Text = dataGridViewStudent.CurrentRow.Cells["Nationality"].Value.ToString();
-                textBox_Address.Text = dataGridViewStudent.CurrentRow.Cells["Address"].Value.ToString();
-
-                string gender = dataGridViewStudent.CurrentRow.Cells["Gender"].Value.ToString();
-
-                if (gender is "Male")
-                {
-                    radioButton_Male.PerformClick();
-                }
-                else if (gender is "Female")
-                {
-                    radioButton_Female.PerformClick();
-                }
-                else
-                {
-                    radioButton_PreferNotToSay.PerformClick();
-                }
+                radioButton_PreferNotToSay.PerformClick();
             }
         }
 
