@@ -161,6 +161,10 @@ namespace StudentManagementCRUDApp
             {
                 pictureBox_Image.Image = Resources.default_female;
             }
+            else if (pictureBox_Image.Image is null & radioButton_PreferNotToSay.Checked)
+            {
+                pictureBox_Image.Image = Resources.default_preferNotToSay;
+            }
 
             MemoryStream memoryStream = new MemoryStream();
             pictureBox_Image.Image.Save(memoryStream, pictureBox_Image.Image.RawFormat);
