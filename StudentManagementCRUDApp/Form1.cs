@@ -153,23 +153,36 @@ namespace StudentManagementCRUDApp
 
         private byte[] DefineImageInBytes()
         {
-            if (pictureBox_Image.Image is null & radioButton_Male.Checked)
+            if (IsImageDefaultImage(pictureBox_Image.Image))
             {
-                pictureBox_Image.Image = Resources.default_male;
+                pictureBox_Image.Image = null;
             }
-            else if (pictureBox_Image.Image is null & radioButton_Female.Checked)
+
+            if (pictureBox_Image.Image is null)
             {
-                pictureBox_Image.Image = Resources.default_female;
-            }
-            else if (pictureBox_Image.Image is null & radioButton_PreferNotToSay.Checked)
-            {
-                pictureBox_Image.Image = Resources.default_preferNotToSay;
+                if (radioButton_Male.Checked)
+                {
+                    pictureBox_Image.Image = Resources.default_male;
+                }
+                else if (radioButton_Female.Checked)
+                {
+                    pictureBox_Image.Image = Resources.default_female;
+                }
+                else if (radioButton_PreferNotToSay.Checked)
+                {
+                    pictureBox_Image.Image = Resources.default_preferNotToSay;
+                }
             }
 
             MemoryStream memoryStream = new MemoryStream();
             pictureBox_Image.Image.Save(memoryStream, pictureBox_Image.Image.RawFormat);
 
             return memoryStream.GetBuffer();
+        }
+
+        private bool IsImageDefaultImage(Image image)
+        {
+            return image == Resources.default_male || image == Resources.default_female || image == Resources.default_preferNotToSay;
         }
 
         private string DefineGender()
