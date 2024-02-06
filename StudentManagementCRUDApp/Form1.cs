@@ -33,9 +33,14 @@ namespace StudentManagementCRUDApp
 
             foreach (Student student in students)
             {
-                dataGridViewStudent.Rows.Add(student.ID, student.Image, student.Name, student.Surname, student.Birthdate,
-                                             student.Nationality, student.Gender, student.Address);
+                AddStudentToDatagridview(student);
             }
+        }
+
+        private void AddStudentToDatagridview(Student student)
+        {
+            dataGridViewStudent.Rows.Add(student.ID, student.Image, student.Name, student.Surname, student.Birthdate,
+                                         student.Nationality, student.Gender, student.Address);
         }
 
         private List<Student> GetAllStudentsDataFromDatabase()
@@ -93,6 +98,7 @@ namespace StudentManagementCRUDApp
             pictureBox_Image.Image = null;
         }
 
+
         private void button_Add_Click(object sender, EventArgs e)
         {
             CheckIDValidation();
@@ -100,16 +106,11 @@ namespace StudentManagementCRUDApp
             Student student = GetStudentDataFromUser();
 
             SaveStudentDataInDatabase(student);
+
+            student.Image = pictureBox_Image.Image;
             AddStudentToDatagridview(student);
 
             ClearDataControlsForNewData();
-        }
-
-        private void AddStudentToDatagridview(Student student)
-        {
-            student.Image = pictureBox_Image.Image;
-            dataGridViewStudent.Rows.Add(student.ID, student.Image, student.Name, student.Surname, student.Birthdate,
-                                         student.Nationality, student.Gender, student.Address);
         }
 
         private void CheckIDValidation()
