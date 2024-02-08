@@ -414,7 +414,7 @@ namespace StudentManagementCRUDApp
                     MessageBox.Show($"Student with id {student.ID} was removed succesfully.", "Notification",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    ShowAllDataInDatagridview(students);
+                    dataGridViewStudent.Rows.Remove(dataGridViewStudent.CurrentRow);
                 }
             }
 
