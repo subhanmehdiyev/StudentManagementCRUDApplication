@@ -26,13 +26,12 @@ namespace StudentManagementCRUDApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ShowAllDataInDatagridview();
+            students = GetAllStudentsDataFromDatabase();
+            ShowAllDataInDatagridview(students);
         }
 
-        private void ShowAllDataInDatagridview()
+        private void ShowAllDataInDatagridview(List<Student> students)
         {
-            students = GetAllStudentsDataFromDatabase();
-
             foreach (Student student in students)
             {
                 AddStudentToDatagridview(student);
@@ -415,7 +414,7 @@ namespace StudentManagementCRUDApp
                     MessageBox.Show($"Student with id {student.ID} was removed succesfully.", "Notification",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    ShowAllDataInDatagridview();
+                    ShowAllDataInDatagridview(students);
                 }
             }
 
@@ -505,7 +504,7 @@ namespace StudentManagementCRUDApp
             textBox_Search.Text = "Search by ID";
 
             dataGridViewStudent.Rows.RemoveAt(0);
-
+            ShowAllDataInDatagridview(students);
         }
     }
 }
