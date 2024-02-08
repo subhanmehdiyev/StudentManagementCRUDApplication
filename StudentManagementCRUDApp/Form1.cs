@@ -439,8 +439,8 @@ namespace StudentManagementCRUDApp
 
         private void button_Search_Click(object sender, EventArgs e)
         {
-            string targetStudentID = textBox_Search.Text;
-            Student student = null;
+            int targetStudentID = int.Parse(textBox_Search.Text);
+            Student student = new Student();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -454,29 +454,36 @@ namespace StudentManagementCRUDApp
                 {
                     if (reader is not null)
                     {
-                        if (reader.GetString("Student_ID") == targetStudentID)
+                        while (reader.Read())
                         {
-                            student = new Student()
-                            {
-                                ID = reader.GetInt32("Student_ID"),
-                                Image = Image.FromStream(reader.GetStream("Student_ImageInByteArray")),
-                                Name = reader.GetString("Student_Name"),
-                                Surname = reader.GetString("Student_Surname"),
-                                Birthdate = ToDateOnly(reader.GetDateTime("Student_Birthdate")),
-                                Nationality = reader.GetString("Student_Nationality"),
-                                Gender = reader.GetString("Student_Gender"),
-                                Address = reader.GetString("Student_Address")
-                            };
+                            int studentId = reader.GetInt32("Student_ID");
 
-                            ShowAllDataInDatagridview();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Student with id {student.ID} is not found.", "Notification",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (studentId == targetStudentID)
+                            {
+                                student = new Student()
+                                {
+                                    ID = reader.GetInt32("Student_ID"),
+                                    Image = Image.FromStream(reader.GetStream("Student_ImageInByteArray")),
+                                    Name = reader.GetString("Student_Name"),
+                                    Surname = reader.GetString("Student_Surname"),
+                                    Birthdate = ToDateOnly(reader.GetDateTime("Student_Birthdate")),
+                                    Nationality = reader.GetString("Student_Nationality"),
+                                    Gender = reader.GetString("Student_Gender"),
+                                    Address = reader.GetString("Student_Address")
+                                };
+
+                                dataGridViewStudent.Rows.Clear();
+                                AddStudentToDatagridview(student);
+                            }
                         }
                     }
                 }
+            }
+
+            if (student.ID is default(int))
+            {
+                MessageBox.Show($"Student with id {targetStudentID} is not found.", "Notification",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
