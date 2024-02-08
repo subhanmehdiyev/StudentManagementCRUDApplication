@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Drawing.Configuration;
 using System.Reflection.PortableExecutable;
 using StudentManagementCRUDApp.Properties;
+using System.Drawing.Text;
 
 namespace StudentManagementCRUDApp
 {
@@ -153,11 +154,6 @@ namespace StudentManagementCRUDApp
 
         private byte[] DefineImageInBytes()
         {
-            if (IsImageDefaultImage(pictureBox_Image.Image))
-            {
-                pictureBox_Image.Image = null;
-            }
-
             if (pictureBox_Image.Image is null)
             {
                 if (radioButton_Male.Checked)
@@ -178,11 +174,6 @@ namespace StudentManagementCRUDApp
             pictureBox_Image.Image.Save(memoryStream, pictureBox_Image.Image.RawFormat);
 
             return memoryStream.GetBuffer();
-        }
-
-        private bool IsImageDefaultImage(Image image)
-        {
-            return image == Resources.default_male || image == Resources.default_female || image == Resources.default_preferNotToSay;
         }
 
         private string DefineGender()
@@ -281,6 +272,17 @@ namespace StudentManagementCRUDApp
             textBox_Nationality.Text = dataGridViewStudent.CurrentRow.Cells["Nationality"].Value.ToString();
             textBox_Address.Text = dataGridViewStudent.CurrentRow.Cells["Address"].Value.ToString();
 
+            Image image = (Image)dataGridViewStudent.CurrentRow.Cells["Student_Image"].Value;
+
+            if (IsImageDefaultImage(image))
+            {
+                pictureBox_Image.Image = null;
+            }
+            else
+            {
+                pictureBox_Image.Image = image;
+            }
+
             string gender = dataGridViewStudent.CurrentRow.Cells["Gender"].Value.ToString();
 
             if (gender is "Male")
@@ -294,6 +296,27 @@ namespace StudentManagementCRUDApp
             else
             {
                 radioButton_PreferNotToSay.PerformClick();
+            }
+        }
+
+        private bool IsImageDefaultImage(Image image)
+        {
+            var imageInArray = ImageToByteArray(image);
+            var maleInArray = ImageToByteArray(Resources.default_male);
+            var femaleInArray = ImageToByteArray(Resources.default_female);
+            var preferNotToSayInArray = ImageToByteArray(Resources.default_preferNotToSay);
+
+            return imageInArray.Length.Equals(maleInArray.Length) |
+                   imageInArray.Length.Equals(femaleInArray.Length) |
+                   imageInArray.Length.Equals(preferNotToSayInArray.Length);
+        }
+
+        private byte[] ImageToByteArray(Image image)
+        {
+            using (var memoryStream = new MemoryStream())
+            {
+                image.Save(memoryStream, image.RawFormat);
+                return memoryStream.GetBuffer();
             }
         }
 
