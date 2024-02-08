@@ -390,7 +390,7 @@ namespace StudentManagementCRUDApp
             dataGridViewStudent.Rows.RemoveAt(rowIndex);
 
             student.Image = pictureBox_Image.Image;
-            dataGridViewStudent.Rows.Insert(rowIndex, student.ID, student.Image, student.Name, student.Surname, student.Birthdate, 
+            dataGridViewStudent.Rows.Insert(rowIndex, student.ID, student.Image, student.Name, student.Surname, student.Birthdate,
                                                       student.Nationality, student.Gender, student.Address);
         }
 
@@ -437,7 +437,20 @@ namespace StudentManagementCRUDApp
             textBox_Search.Text.Remove(0);
         }
 
+        private void textBox_Search_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchStudent();
+            }
+        }
+
         private void button_Search_Click(object sender, EventArgs e)
+        {
+            SearchStudent();
+        }
+
+        private void SearchStudent()
         {
             int targetStudentID = int.Parse(textBox_Search.Text);
             Student student = new Student();
@@ -491,7 +504,8 @@ namespace StudentManagementCRUDApp
         {
             textBox_Search.Text = "Search by ID";
 
-            ShowAllDataInDatagridview();
+            dataGridViewStudent.Rows.RemoveAt(0);
+
         }
     }
 }

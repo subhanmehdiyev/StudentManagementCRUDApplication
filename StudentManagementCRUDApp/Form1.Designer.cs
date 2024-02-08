@@ -290,6 +290,7 @@
             textBox_Search.Text = "Search by ID ";
             textBox_Search.Click += textBox_Search_Click;
             textBox_Search.TextChanged += textBox_Search_TextChanged;
+            textBox_Search.KeyDown += textBox_Search_KeyDown;
             // 
             // button_Delete
             // 
