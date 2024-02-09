@@ -208,13 +208,9 @@ namespace StudentManagementCRUDApp
                 connection.Open();
 
                 SqlCommand command = connection.CreateCommand();
-                command.CommandText = @"INSERT INTO Students (Student_ID, Student_ImageInByteArray, Student_Name, 
-                                                              Student_Surname, Student_Birthdate, Student_Nationality, 
-                                                              Student_Gender, Student_Address)
-                                        VALUES (@Id,@ImageInByteArray,@Name,
-                                                @Surname,@Birthdate,@Nationality,
-                                                @Gender,@Address)";
-
+                command.CommandText = @"INSERT INTO Students VALUES (@Id,@ImageInByteArray,@Name,
+                                                                     @Surname,@Birthdate,@Nationality,
+                                                                     @Gender,@Address)";
                 command.Parameters.AddRange(new SqlParameter[] {
                     new SqlParameter("@Id", student.ID),
                     new SqlParameter("@ImageInByteArray", student.imageInByteArray),
